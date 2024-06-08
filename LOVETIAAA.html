@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hottest Woman in the World</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            overflow: hidden;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .initial-screen, .message-screen {
+            display: none;
+            animation: fadeIn 1s forwards;
+        }
+
+        .initial-screen.active, .message-screen.active {
+            display: block;
+        }
+
+        .intro, .message, .bye, .signature {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .intro {
+            font-size: 2em;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .message {
+            color: #fff;
+        }
+
+        .bye {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+
+        .signature {
+            font-size: 1.2em;
+            color: #fff;
+            margin-top: 30px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes moveStars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2015/06/20/13/18/ice-815003_1280.jpg') repeat;
+            animation: moveStars 50s linear infinite;
+            opacity: 0.2;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('https://image.flaticon.com/icons/png/512/1077/1077086.png') no-repeat center;
+            background-size: contain;
+            animation: moveHeart 5s linear infinite;
+        }
+
+        @keyframes moveHeart {
+            from { transform: translate(0, 0); }
+            to { transform: translate(calc(100vw - 20px), calc(100vh - 20px)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="initial-screen active" id="initialScreen">
+            <p class="intro">IF YOU'RE THE HOTTEST WOMAN IN THE WORLD, READ THIS</p>
+        </div>
+        <div class="message-screen" id="messageScreen">
+            <p class="message">Hi Tia, kamu adalah wanita terbaik yang pernah Tuhan ciptakan dan kamu harus bersyukur atas hal tersebut tapi dapatkah aku memiliki mu?</p>
+            <p class="message">Aku gabakal capek buat ngejar kamu</p>
+            <p class="bye">BYE BYE</p>
+            <p class="signature">- DIPO -</p>
+        </div>
+    </div>
+    <div class="stars"></div>
+    <div class="heart" style="top: 50px; left: 100px;"></div>
+    <div class="heart" style="top: 200px; left: 300px;"></div>
+    <div class="heart" style="top: 150px; left: 500px;"></div>
+    <div class="heart" style="top: 350px; left: 700px;"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var initialScreen = document.getElementById('initialScreen');
+            var messageScreen = document.getElementById('messageScreen');
+            
+            setTimeout(function() {
+                initialScreen.classList.remove('active');
+                messageScreen.classList.add('active');
+            }, 5000); // Change 5000 to your desired delay in milliseconds
+        });
+    </script>
+</body>
+</html>
